@@ -150,8 +150,8 @@ status_label = ttk.Label(frame, text="No file selected", anchor="center")
 status_label.pack(pady=20)
 
 
-footer_label = tk.Label(root, text="Developed by Pranav Sangave. For more software inquiries reach out us at +91 9096553454, sangways.web@gmail.com. (Android Apps | Websites | Desktop Apps)", font=("Arial", 8))
-footer_label.pack(side="bottom", pady=20)
+# footer_label = tk.Label(root, text="Developed by Pranav Sangave. For more software inquiries reach out us at +91 9096553454, sangways.web@gmail.com. (Android Apps | Websites | Desktop Apps)", font=("Arial", 8))
+# footer_label.pack(side="bottom", pady=20)
 
 # Start the Tkinter event loop
 root.mainloop()
