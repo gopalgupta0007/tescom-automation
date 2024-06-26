@@ -14,25 +14,28 @@ def extract_phone_number(phone):
     phone = re.sub(r'^\+\d{1,2}', '', phone)
     return phone
 
+
 def send_whatsapp(data_file_excel):
     global abort_flag
     # Read the Excel file
     df = pd.read_excel(data_file_excel, dtype={"Contact": str})
     names = df["Name"].values
     contacts = df["Contact"].values
-    messages = df['Message'].values
+    # messages = df['Message'].values
 
     # Open WhatsApp Desktop application using URI scheme
     subprocess.Popen(['start', 'whatsapp://'], shell=True)
     time.sleep(3)  # Allow time for WhatsApp to open
 
-    for name, contact, message in zip(names, contacts, messages):
+    # for name, contact, message in zip(names, contacts, messages):
+    for name, contact in zip(names, contacts):
         if abort_flag:  # Check the abort flag
             print("Aborted!")
             messagebox.showinfo("Aborted", "Message sending process aborted!")
             break
 
         contact = extract_phone_number(contact)
+        message = "🔹 Tescom Business Internet Service 🔹 \n\nBoost your business with our reliable high-speed internet! \n\n📶 Plans:  \n\n50 Mbps - ₹600/month \n100 Mbps - ₹900/month\n150 Mbps - ₹1100/month\n✨ Installation & Equipment:\n\nInstallation Fee: ₹1500 (one-time)\nRouter: ₹1000 (one-time)\n🎉 Special Offer: Free Wi-Fi Router with any yearly plan!\n\n📞 Contact Us:\nMessage or call 7738999055 for details and sign-up.\n\nStay connected with Tescom Business Internet Service!"
         # time.sleep(3)
         time.sleep(2)
         pyautogui.hotkey('ctrl', 'n')  # Open new chat
@@ -40,28 +43,30 @@ def send_whatsapp(data_file_excel):
         time.sleep(2)
         pyautogui.hotkey('tab')
         # time.sleep(2)
-        time.sleep(2)
+        time.sleep(1)
         pyautogui.hotkey('tab')
         # time.sleep(2)
-        time.sleep(2)
+        time.sleep(1)
         pyautogui.press('enter')   # open New Chats
         # time.sleep(2)
-        time.sleep(2)
+
+        time.sleep(1)
         pyautogui.typewrite(contact)   # write/find/search contact number
         # time.sleep(3)
-        time.sleep(2)
+        time.sleep(2)#
+
         pyautogui.hotkey('tab')
         # time.sleep(2)
-        time.sleep(2)
+        time.sleep(2)#
         pyautogui.press('enter')
-        # time.sleep(2)
-        time.sleep(5)
-        pyautogui.typewrite(message)
-        # time.sleep(2)
-        time.sleep(5)
+
+        time.sleep(2)
+        pyautogui.click(x=701, y=987)
         
+        time.sleep(2)
         # if need to reqired to add images on the whatapp message so that add next to line of code
         pyautogui.hotkey('ctrl', 'v')
+
         time.sleep(2)
 
         pyautogui.press('enter')
@@ -79,7 +84,7 @@ def send_whatsapp(data_file_excel):
 
         pyautogui.press('esc')
         # time.sleep(4)
-        time.sleep(1)
+        time.sleep(2)
 
         print(f"Message sent to {name} ({contact})")
     print("Done!")
