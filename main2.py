@@ -36,55 +36,21 @@ def send_whatsapp(data_file_excel):
 
         contact = extract_phone_number(contact)
         message = "🔹 Tescom Business Internet Service 🔹 \n\nBoost your business with our reliable high-speed internet! \n\n📶 Plans:  \n\n50 Mbps - ₹600/month \n100 Mbps - ₹900/month\n150 Mbps - ₹1100/month\n✨ Installation & Equipment:\n\nInstallation Fee: ₹1500 (one-time)\nRouter: ₹1000 (one-time)\n🎉 Special Offer: Free Wi-Fi Router with any yearly plan!\n\n📞 Contact Us:\nMessage or call 7738999055 for details and sign-up.\n\nStay connected with Tescom Business Internet Service!"
-        # time.sleep(3)
-        time.sleep(2)
-        pyautogui.hotkey('ctrl', 'n')  # Open new chat
-        # time.sleep(2)
-        time.sleep(2)
-        pyautogui.hotkey('tab')
-        # time.sleep(2)
-        time.sleep(1)
-        pyautogui.hotkey('tab')
-        # time.sleep(2)
-        time.sleep(1)
-        pyautogui.press('enter')   # open New Chats
-        # time.sleep(2)
-
-        time.sleep(1)
-        pyautogui.typewrite(contact)   # write/find/search contact number
-        # time.sleep(3)
-        time.sleep(2)#
-
-        pyautogui.hotkey('tab')
-        # time.sleep(2)
-        time.sleep(2)#
-        pyautogui.press('enter')
-
-        time.sleep(2)
-        pyautogui.click(x=701, y=987)
         
-        time.sleep(2)
-        # if need to reqired to add images on the whatapp message so that add next to line of code
+        time.sleep(1)
+        pyautogui.click(x=445, y=87)
+        time.sleep(0.7)
+        pyautogui.typewrite(contact)   # write/find/search contact number
+        time.sleep(0.2)
+        pyautogui.hotkey('tab')
+        time.sleep(0.1)
+        pyautogui.press('enter')   
+        time.sleep(0.1)
+        pyautogui.click(x=701, y=987)
+        time.sleep(0.5)
         pyautogui.hotkey('ctrl', 'v')
-
-        time.sleep(2)
-
-        pyautogui.press('enter')
-        # time.sleep(4)
-        time.sleep(2)
-        pyautogui.press('enter')
-        # time.sleep(3)
-        time.sleep(2)
-
-        # Clear the draft by selecting all and deleting
-        pyautogui.hotkey('ctrl', 'a')  # Select all text
-        time.sleep(2)
-        pyautogui.press('backspace')  # Delete selected text
-        time.sleep(2)
-
-        pyautogui.press('esc')
-        # time.sleep(4)
-        time.sleep(2)
+        time.sleep(1.5)
+        pyautogui.press('enter')   
 
         print(f"Message sent to {name} ({contact})")
     print("Done!")
