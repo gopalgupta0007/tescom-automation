@@ -28,7 +28,7 @@ def send_whatsapp(data_file_excel):
     time.sleep(3)  # Allow time for WhatsApp to open
 
     # for name, contact, message in zip(names, contacts, messages):
-    for name, contact in zip(names, contacts):
+        for name, contact in zip(names, contacts):
         if abort_flag:  # Check the abort flag
             print("Aborted!")
             messagebox.showinfo("Aborted", "Message sending process aborted!")
@@ -36,25 +36,26 @@ def send_whatsapp(data_file_excel):
 
         contact = extract_phone_number(contact)
         message = "🔹 Tescom Business Internet Service 🔹 \n\nBoost your business with our reliable high-speed internet! \n\n📶 Plans:  \n\n50 Mbps - ₹600/month \n100 Mbps - ₹900/month\n150 Mbps - ₹1100/month\n✨ Installation & Equipment:\n\nInstallation Fee: ₹1500 (one-time)\nRouter: ₹1000 (one-time)\n🎉 Special Offer: Free Wi-Fi Router with any yearly plan!\n\n📞 Contact Us:\nMessage or call 7738999055 for details and sign-up.\n\nStay connected with Tescom Business Internet Service!"
-        
+        # time.sleep(3)
         time.sleep(1)
         pyautogui.click(x=445, y=87)
-        time.sleep(0.7)
-        pyautogui.typewrite(contact)   # write/find/search contact number
         time.sleep(0.2)
+        pyautogui.typewrite(contact)   # write/find/search contact number
+        time.sleep(1)
         pyautogui.hotkey('tab')
         time.sleep(0.1)
+
         pyautogui.press('enter')   
         time.sleep(0.1)
         pyautogui.click(x=701, y=987)
         time.sleep(0.5)
-        pyautogui.hotkey('ctrl', 'v')
-        time.sleep(1.5)
+        pyautogui.hotkey('ctrl', 'v')   
+        time.sleep(1.7)
         pyautogui.press('enter')   
-
-        print(f"Message sent to {name} ({contact})")
+        time.sleep(0.5)
+        pyautogui.press('esc')
+        print(f"Message sent {name} to {contact}")
     print("Done!")
-
 def select_file():
     file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx")])
     if file_path:
